@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <title>Calcu</title>
+    <style type="text/css">
+        .btn {
+            margin-top:15px;
+            margin-right:5px;
+            margin-bottom:0px;
+            padding:15px 20px;
+        }
+        .container {
+            margin-top:100px;
+            max-width:290px;
+        }
+        
+        body {
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container well">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <input type="text" class="form-control" id="vista" placeholder="0" name=""/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <button class="btn btn-info">1</button>
+                <button class="btn btn-info">2</button>
+                <button class="btn btn-info">3</button>
+                <button class="btn btn-warning">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <button class="btn btn-info">4</button>
+                <button class="btn btn-info">5</button>
+                <button class="btn btn-info">6</button>
+                <button class="btn btn-warning">-</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <button class="btn btn-info">7</button>
+                <button class="btn btn-info">8</button>
+                <button class="btn btn-info">9</button>
+                <button class="btn btn-warning">/</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <button class="btn btn-info">0</button>
+                <button class="btn btn-success">=</button>
+                <button class="btn btn-danger">AC</button>
+                <button class="btn btn-warning">*</button>
+                
+            </div>
+        </div>
+    </div>
+    
+<script type="text/javascript">
+window.onload = function () {
+  
+  var but = document.querySelectorAll("button");
+  var input = document.getElementById("vista");
+
+  for (var i = 0; i < but.length; i++) {
+      but[i].addEventListener("click", calc);
+     // console.log(but[i]);
+  } 
+ 
+ function calc () {
+     
+     var digit = this.innerText;
+     var operador = "";
+     var result = 0;
+     var num1 = 0;
+     var num2 = 0;
+     
+     var valor = digit;
+         input.value += valor;
+     
+     switch (digit) {
+         case "+": result += parseInt(input.value); 
+                   input.value = "";
+                   operador = "+";
+                   console.log(result);
+                   console.log(operador);
+         break;
+         case "*": num1 = parseInt(input.value); 
+                   input.value = "";
+                   operador = "*";
+         break;
+         case "/": num1 = parseInt(input.value); 
+                   input.value = "";
+                   operador = "/";
+         break;
+         case "-": num1 = parseInt(input.value); 
+                   input.value = "";
+                   operador = "-";
+         break;
+         /*case "=": num2 = parseInt(input.value); 
+                   console.log(num2);
+                   input.value = operacion(num1, num2, operador);
+                   console.log(input.value);*/
+                   
+         case "=": operacion();           
+         break;
+        // default: console.log("Nada para hacer");
+     }
+     
+     
+    function operacion () {
+        
+        result += parseInt(input.value);
+               input.value = "";
+               console.log(result);
+               
+       // result = num1 + num2;
+        //    console.log(result);
+            input.value = result;       
+        
+       /* switch (operador) {
+            case "+" : result = num1 + num2;
+                       console.log(result);
+                       input.value = result;
+            break;           
+        }*/
+        
+        
+        
+       /* if (operador == "+") {
+            result = num1 + num2;
+            console.log(result);
+            input.value = result;
+        } else {
+            console.log("Nada para calcular!");
+        }*/
+         
+        
+        
+    }
+     
+    /* if (digit == "+" || digit == "-" || digit == "*" || digit == "/") {
+         operador = digit;
+         console.log(operador);
+         
+     } else if (digit == "=") {
+         
+         if (num1 == null) {
+             input.value = "Falta 1er numero!";
+         } else if (operador == "") {
+             input.value = "Falta el operador!"; 
+             console.log(operador);
+         } else if (num2 == null) {
+             input.value = "Falta 2do numero!";
+         } else {
+             resultado = num1 + operador + num2;
+             input.value = resultado;             
+         }
+     
+     } else if (digit == "AC") { 
+         input.value = "";
+         operador = "";
+         resultado = null;
+         num1 = null;
+         num2 = null;
+     
+         
+     } else {
+     
+       if (operador == "") {
+         digit = parseInt(digit);
+         input.value = digit;
+         num1 = digit;
+         console.log("num1: " + num1);
+         
+       } else {
+         digit = parseInt(digit);
+         input.value = digit;
+         num2 = digit;
+         console.log("num2: " + num2);
+       }
+         
+     } */
+     
+ }
+ 
+};    
+</script>    
+    
+</body>
+</html>

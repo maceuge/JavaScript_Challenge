@@ -1,4 +1,6 @@
 
+//var propiedad;
+
 var animal = {
     nombre: "pepe",
     altura: 1.75,

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <title>Rolex</title>
+    <style type="text/css">
+        .rolex {
+            float: left;
+            padding:30px;
+            margin: 0px;
+            border:1px solid #777;
+            background-color:#222;
+            color:#73e600;
+            font-size: 55px;
+            text-align:center;
+            font-family: 'Orbitron', sans-serif;
+            
+        }
+        .row {
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+ <div class="jumbotron">    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 rolex" id="hs">00</div>
+            <div class="col-md-4 rolex" id="min">00</div>
+            <div class="col-md-4 rolex" id="seg">00</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    
+    var hsd = document.getElementById("hs");
+    var mind = document.getElementById("min");
+    var segd = document.getElementById("seg");
+    
+    var inteval = 1000;
+    
+    var seg = 0;
+    var min = 0;
+    var hs = 0;
+    
+    function rolex () {
+        
+        if (seg < 59) {
+            seg ++; 
+            if (seg < 10) {
+               segd.innerText = "0"+seg;
+            } else {
+               segd.innerText = seg;
+            }
+            
+        } else {
+            seg = 0;
+            segd.innerText = "0"+seg;
+            min++;
+          if (min < 59) {
+           // min++;
+            if (min < 10) {
+                mind.innerText = "0"+min;
+            } else {
+                mind.innerText = min;
+            }
+            
+        }
+          
+        }
+    }
+    var RolexRoll = window.setInterval(rolex, inteval);
+
+</script>    
+    
+</body>
+</html>

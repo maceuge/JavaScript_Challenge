@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+<ul>
+
+</ul>   
+    
+<script type="text/javascript">
+    
+window.onload = function () {
+    
+  var list = document.getElementsByTagName("ul");
+  var elem = document.createElement("li");
+  var elem2 = document.createElement("li");
+  var text = document.createTextNode("Item ");
+   list[0].appendChild(elem);
+   list[0].appendChild(elem2);
+  
+   for (var i = 0; i < list[0].children.length; i++) {
+       
+       list[0].children[i].innerText = text[0] + (i + 1);
+       
+   }
+    
+};    
+    
+</script>   
+    
+</body>
+</html>
